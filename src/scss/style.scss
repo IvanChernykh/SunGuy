@@ -12,7 +12,7 @@ html {
   font-size: 10px;
 }
 body {
-  background-color: #ebebeb;
+  background-color: #111;
   font-family: "EB Garamond", serif;
   color: #fff;
 }
@@ -21,10 +21,8 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  max-width: 900px;
+  max-width: 1080px;
   margin: 0 auto;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
 }
 .game__title,
 .game__subtitle {

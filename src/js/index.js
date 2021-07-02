@@ -39,6 +39,9 @@ function startGame() {
     let obstCount = 0;
     let current = 0
 
+    if (screenGame.clientWidth >= 900) gameSpeed = +(0.6).toFixed(2)
+    if (screenGame.clientWidth >= 1100) gameSpeed = +(0.5).toFixed(2)
+
     document.addEventListener('keydown', event => { if (event.code === 'Space') jump() })
     screenGame.addEventListener('click', jump)
 
@@ -80,9 +83,7 @@ function startGame() {
     function jump() {
         if (!char.classList.contains('jump')) {
             char.classList.add('jump')
-            setTimeout(() => {
-                char.classList.remove('jump')
-            }, 500)
+            setTimeout(() => { char.classList.remove('jump') }, 500)
         }
     }
     function isAliveHandler(obstX) {
