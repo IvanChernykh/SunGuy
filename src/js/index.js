@@ -41,16 +41,18 @@ function startGame() {
     const screenGame = document.createElement('div')
     screenGame.classList.add('screen__game')
     startMenu.insertAdjacentElement('beforebegin', screenGame)
-    screenGame.innerHTML = getGameHTML
+    screenGame.innerHTML = getGameHTML()
     const char = screenGame.querySelector('.game__character')
     let gameSpeed = +(0.8).toFixed(2)
     let obstCount = 0;
+    let current = 0
 
     document.addEventListener('keydown', event => { if (event.code === 'Space') jump() })
     screenGame.addEventListener('click', jump)
 
     spawnObstacle()
     backgroundMove()
+    scoreCount()
 
     function backgroundMove() {
         if (isAlive) {
@@ -77,7 +79,7 @@ function startGame() {
                 if (obstX < -5) obst.remove()
                 isAliveHandler(obstX)
             }, 10);
-            const spawnTime = getRandomNum(500, 2500)
+            const spawnTime = getRandomNum(500, 2000)
             setTimeout(() => {
                 spawnObstacle()
             }, spawnTime);
@@ -96,8 +98,25 @@ function startGame() {
         if (charY <= 110 && (obstX <= 25 && obstX >= 20)) {
             isAlive = false
             screenGame.remove()
+            endGameMenu.querySelector('.endGame__score').innerText = `score: ${current}`
             endGameMenu.classList.remove('hide')
         }
+    }
+    function scoreCount() {
+        const score = screenGame.querySelector('.game__score')
+        const highCount = score.querySelector('.game__highscore')
+        const currentCount = score.querySelector('.game__current')
+        let high = localStorage.getItem('HighScore') || 0
+        const scoreInterval = setInterval(() => {
+            current += 1
+            currentCount.innerText = current
+            highCount.innerText = high
+            if (current > high) high = current
+            if (!isAlive) {
+                clearInterval(scoreInterval)
+                localStorage.setItem('HighScore', high)
+            }
+        }, 100);
     }
 }
 function getRandomNum(min, max) {
@@ -108,5 +127,9 @@ function getGameHTML() {
         <div class="game__ground"></div>
         <div class="game__bg"></div>
         <div class="game__character"></div>
+        <div class="game__score">
+            high: <span class="game__highscore"></span><br>
+            score: <span class="game__current"></span>
+        </div>
     `
 }

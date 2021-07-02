@@ -153,6 +153,22 @@ body {
   animation-duration: 1.5s;
   width: 210%; }
 
+.game__score {
+  top: 20%;
+  right: 5%;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  padding: 4px;
+  text-align: right; }
+  .game__score span {
+    width: 80px;
+    display: inline-block;
+    text-align: left;
+    padding: 0 0.5rem; }
+
 .obstacle {
   bottom: 6rem;
   width: 4rem;
