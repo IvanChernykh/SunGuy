@@ -16,25 +16,17 @@ startMenu.addEventListener('click', event => {
 endGameMenu.addEventListener('click', event => {
     openControls(event)
     StartGameHandler(event)
-    if (event.target.dataset.type === "menu") {
-        location.href = location.href
-    }
+    if (event.target.dataset.type === "menu") location.href = location.href
 })
 controlMenu.addEventListener('click', event => {
-    if (event.target.dataset.type === 'back') {
-        controlMenu.classList.add('hide')
-    }
+    if (event.target.dataset.type === 'back') controlMenu.classList.add('hide')
 })
 function openControls(event) {
-    if (event.target.dataset.type === 'controls') {
-        controlMenu.classList.remove('hide')
-    }
+    if (event.target.dataset.type === 'controls') controlMenu.classList.remove('hide')
 }
 function StartGameHandler(event) {
     if (event.target.dataset.type === "start") startGame()
 }
-//gameplay ----------------
-
 function startGame() {
     isAlive = true
     menus.forEach(el => { el.classList.add('hide') })
@@ -103,9 +95,8 @@ function startGame() {
         }
     }
     function scoreCount() {
-        const score = screenGame.querySelector('.game__score')
-        const highCount = score.querySelector('.game__highscore')
-        const currentCount = score.querySelector('.game__current')
+        const highCount = screenGame.querySelector('.game__highscore')
+        const currentCount = screenGame.querySelector('.game__current')
         let high = localStorage.getItem('HighScore') || 0
         const scoreInterval = setInterval(() => {
             current += 1
