@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap");
 //variables
 $groundHeight: 6rem;
+$jumpSpeed: 0.5s;
 //-------------------
 * {
   margin: 0;
@@ -124,6 +125,15 @@ body {
   0% {
     bottom: $groundHeight;
   }
+  50% {
+    bottom: $groundHeight + 10rem;
+  }
+  100% {
+    bottom: $groundHeight;
+  }
+}
+.jump {
+  animation: jump $jumpSpeed;
 }
 .screen__game {
   height: 100%;
@@ -156,6 +166,7 @@ body {
 .obstacle {
   bottom: $groundHeight;
   width: 4rem;
+  left: 110%;
   height: 5.6rem;
   background: orange;
   background-size: 100% 100%;
