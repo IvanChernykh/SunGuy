@@ -143,25 +143,38 @@ body {
   bottom: 6rem;
   height: 100%;
   background: url(img/b21c202f65e682e7f9d33c5dc24cf827.webp) repeat-x center center;
-  animation-duration: 10s; }
+  animation-duration: 10s;
+  width: 200%; }
 
 .game__ground {
   bottom: 0;
   height: 6rem;
   background: url(img/ac7a03489fb8452984d429024dd5fb65.webp) repeat-x center center;
-  animation-duration: 1.5s; }
+  animation-duration: 1.5s;
+  width: 210%; }
 
 .obstacle {
   bottom: 6rem;
   width: 4rem;
   left: 110%;
   height: 5.6rem;
-  background: orange;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 100% 100%; }
 
-.game__bg,
-.game__ground {
-  width: 200%;
+.obst-1 {
+  background-image: url(img/a83152e008423c8afffa07450e65211b.gif); }
+
+.obst-2 {
+  background-image: url(img/a83152e008423c8afffa07450e65211b.gif); }
+
+.obst-3 {
+  background-image: url(img/7a6542592e809039eb014369b7543298.png); }
+
+.obst-4 {
+  background-image: url(img/a86c991811469d22926f6c3c256da8a8.png); }
+
+.game__bg {
   left: 0;
   background-size: 50% 100%;
   animation-name: bg;

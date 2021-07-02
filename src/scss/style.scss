@@ -156,24 +156,37 @@ body {
   height: 100%;
   background: url(../img/bg_top.webp) repeat-x center center;
   animation-duration: 10s;
+  width: 200%;
 }
 .game__ground {
   bottom: 0;
   height: $groundHeight;
   background: url(../img/bg.webp) repeat-x center center;
   animation-duration: 1.5s;
+  width: 210%;
 }
 .obstacle {
   bottom: $groundHeight;
   width: 4rem;
   left: 110%;
   height: 5.6rem;
-  background: orange;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: 100% 100%;
 }
-.game__bg,
-.game__ground {
-  width: 200%;
+.obst-1 {
+  background-image: url(../img/obstacles/1.gif);
+}
+.obst-2 {
+  background-image: url(../img/obstacles/1.gif);
+}
+.obst-3 {
+  background-image: url(../img/obstacles/3.png);
+}
+.obst-4 {
+  background-image: url(../img/obstacles/4.png);
+}
+.game__bg {
   left: 0;
   background-size: 50% 100%;
   animation-name: bg;
